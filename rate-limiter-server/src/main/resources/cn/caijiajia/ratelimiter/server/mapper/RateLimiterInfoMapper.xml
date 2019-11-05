@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.caijiajia.ratelimiter.server.cn.caijiajia.ratelimiter.mapper.RateLimiterInfoMapper">
-    <select id="selectAll" resultType="RateLimiterInfo">
+<mapper namespace="cn.caijiajia.ratelimiter.server.mapper.RateLimiterInfoMapper">
+    <select id="selectAll" resultType="cn.caijiajia.ratelimiter.server.domain.RateLimiterInfo">
         select `name`,apps,max_permits as maxPermits,`rate`
         from rate_limiter_info
     </select>
@@ -15,7 +15,7 @@
         rate=#{rate}
     </insert>
 
-    <select id="selectByName" parameterType="map" resultType="RateLimiterInfo">
+    <select id="selectByName" parameterType="map" resultType="cn.caijiajia.ratelimiter.server.domain.RateLimiterInfo">
         select `name`,apps,max_permits as maxPermits,`rate`
         from rate_limiter_info
         where `name`=#{name}

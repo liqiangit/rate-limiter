@@ -37,4 +37,15 @@
         <property name="logAbandoned" value="true"/>
         <property name="jdbcInterceptors" value="ConnectionState;StatementFinalizer"/>
     </bean>
+    <!-- define the SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage"	value="cn.wukq.ratelimiter.server.domain" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="basePackage" value="cn.caijiajia.ratelimiter.server.mapper" />
+	</bean>
 </beans>
