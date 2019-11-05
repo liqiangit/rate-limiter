@@ -68,7 +68,7 @@ public class RateLimiterClient {
                     return connection.time();
                 }
             });
-            System.out.println(rateLimiterClientLua.getScriptAsString());
+//            System.out.println(rateLimiterClientLua.getScriptAsString());
             Long acquire = stringRedisTemplate.execute(rateLimiterClientLua, ImmutableList.of(getKey(key)), RateLimiterConstants.RATE_LIMITER_ACQUIRE_METHOD, permits.toString(), currMillSecond.toString(), context);
 
             if (acquire == 1) {
