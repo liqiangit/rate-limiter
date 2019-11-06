@@ -7,9 +7,12 @@
 
 
 ## 测试步骤
-> 1 调用http://localhost:8080/rate-limiter-server/rate-limiters 保存限流
-> {"context":"context","name":"name","maxPermits":100,"rate":50}
-> 2 调用RateLimiterClient
-> rateLimiterClient.acquire("context", "name");
+1 调用http://localhost:8080/rate-limiter-server/rate-limiters 保存限流
 
-> https://gitee.com/zmyer/VX-API-Gateway
+{"context":"context","name":"name","maxPermits":100,"rate":50}
+
+2 调用RateLimiterClient
+
+rateLimiterClient.acquire("context", "name");
+
+https://gitee.com/zmyer/VX-API-Gateway
